@@ -1,0 +1,26 @@
+{
+    "sauceBossData": {
+        "type": "object",
+        "properties": {
+            "description": "Use this datasource to render Recipe Template in APL Authoring Tool",
+            "headerTitle": "#LEARN LION SPELLING!",
+            "headerBackButton": "true",
+            "sauceImg": "https://mcdn.wallpapersafari.com/medium/22/41/HjTMF8.jpg",
+            "sauceText": "Say with me  L I O N 'LION' You can say repeat to hear once more.",
+            "sauceSssml": "<speak><audio src='https://raw.githubusercontent.com/rahulsinha036/Animal-Kingdom/master/Animal-Sound/Tigersound.mp3' />Say with me <break time='2s'/><emphasis level='strong'> L <break time='1s'/> I <break time='1s'/> O <break time='1s'/> N <break time='1s'/> 'LION' </emphasis><break time='2s'/> You can say repeat to hear once more.</speak>",
+            "hintText": "Say tiger to know the spelling"
+        },
+        "transformers": [
+            {
+                "inputPath": "sauceSsml",
+                "transformer": "ssmlToSpeech",
+                "outputName": "sauceSpeech"
+            },
+            {
+                "inputPath": "hintText",
+                "transformer": "textToHint"
+            }
+        ]
+        
+    }
+}

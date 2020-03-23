@@ -1,0 +1,11 @@
+{
+    "sauceBossData": {
+      "description": "Use this datasource to render Help Template in APL Authoring Tool",
+      "headerTitle": "HELP",
+      "headerBackButton": "true",
+      "headerSubtitle": "Select the animal to hear the sound!",
+      "items": [
+          { "primaryText": " Select Lion to hear the sound", "id": "LION" }
+      ]
+    }
+  }

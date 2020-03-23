@@ -1,0 +1,66 @@
+{
+    "type": "APL",
+    "version": "1.1",
+    "import": [
+        {
+            "name": "alexa-viewport-profiles",
+            "version": "1.1.0"
+        },
+        {
+            "name": "alexa-layouts",
+            "version": "1.1.0"
+        }
+    ],
+    "resources": [
+        {
+            "description": "Background Image for Help Screen on Small Round Hubs",
+            "when": "${@viewportProfile == @hubRoundSmall}",
+            "strings": {
+                "backgroundImg": "https://images.unsplash.com/photo-1528295674080-a70f6cbf4ff0?ixlib=rb-1.2.1&auto=format&fit=crop&w=755&q=80"
+            }
+        },
+        {
+            "description": "Background Image for Help Screen on Landscape Hubs",
+            "when": "${@viewportProfile == @hubLandscapeSmall || @viewportProfile == @hubLandscapeMedium || @viewportProfile == @hubLandscapeLarge}",
+            "strings": {
+                "backgroundImg": "https://images.unsplash.com/photo-1528295674080-a70f6cbf4ff0?ixlib=rb-1.2.1&auto=format&fit=crop&w=755&q=80"
+            }
+        },
+        {
+            "description": "Background Image for Help Screen on XLarge Hubs (e.g TV)",
+            "when": "${@viewportProfile == @tvLandscapeXLarge}",
+            "strings": {
+                "backgroundImg": "https://images.unsplash.com/photo-1528295674080-a70f6cbf4ff0?ixlib=rb-1.2.1&auto=format&fit=crop&w=755&q=80"
+            }
+        }
+        
+    ],
+    "mainTemplate": {
+        "parameters": [
+            "payload"
+        ],
+        "items": [
+            {
+                "type": "AlexaTextList",
+                "theme": "${viewport.theme}",
+                "headerTitle": "${payload.sauceBossData.headerTitle}",
+                "headerSubtitle": "${payload.sauceBossData.headerSubtitle}",
+                "headerAttributionImage": "@skillIcon",
+                "headerDivider": true,
+                "headerBackButton": "${payload.sauceBossData.headerBackButton}",
+                "backgroundImageSource": "@backgroundImg",
+                "backgroundScale": "best-fill",
+                "backgroundAlign": "center",
+                "hideOrdinal": true,
+                "primaryAction": {
+                    "type": "SendEvent",
+                    "arguments": [
+                        "sauceInstructions",
+                        "${data.id}"
+                    ]
+                },
+                "listItems": "${payload.sauceBossData.items}"
+            }
+        ]
+    }
+}
